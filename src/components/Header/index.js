@@ -1,5 +1,6 @@
 import {withRouter} from 'react-router-dom'
 import Popup from 'reactjs-popup'
+
 import Cookies from 'js-cookie'
 import NxtWatchContext from '../../context/NxtWatchContext'
 import SideBar from '../SideBar'
@@ -67,6 +68,7 @@ const Header = props => (
             </ThemeButton>
             <HamburgerMenuContainer>
               <Popup
+                modal
                 trigger={
                   <ReactHamburgerMenuIcon
                     color={hamburgerMenuLogoutButtonColor}
@@ -74,7 +76,7 @@ const Header = props => (
                 }
               >
                 {close => (
-                  <PopupHamburgerMenu>
+                  <PopupHamburgerMenu color={bgColor}>
                     <HamburgerMenuCloseButtonContainer>
                       <HamburgerCloseButton
                         color={hamburgerMenuLogoutButtonColor}
@@ -82,7 +84,7 @@ const Header = props => (
                       />
                     </HamburgerMenuCloseButtonContainer>
                     <HamburgerMenuListContainer>
-                      <SideBar />
+                      {/* <SideBar /> */}
                     </HamburgerMenuListContainer>
                   </PopupHamburgerMenu>
                 )}
@@ -95,24 +97,45 @@ const Header = props => (
               />
             </UserProfileContainer>
             <Popup
+              modal
               trigger={
-                <>
-                  <SmallDevicesLogoutButton type="button">
-                    <ReactLogoutIcon color={hamburgerMenuLogoutButtonColor} />
-                  </SmallDevicesLogoutButton>
-                  <MediumDevicesLogoutButton
-                    type="button"
-                    color={mediumLogoutButtonColor}
-                  >
-                    Logout
-                  </MediumDevicesLogoutButton>
-                </>
+                <SmallDevicesLogoutButton type="button">
+                  <ReactLogoutIcon color={hamburgerMenuLogoutButtonColor} />
+                </SmallDevicesLogoutButton>
               }
             >
               {close => (
                 <PopupMainContainer color={bgColor}>
-                  <PopupHeading color={popupHeading} /> Are you sure want to
-                  logout?
+                  <PopupHeading color={popupHeading}>
+                    Are you sure want to logout?
+                  </PopupHeading>
+                  <PopupButtonsContainer>
+                    <PopupCancelButton onClick={() => close()}>
+                      Cancel
+                    </PopupCancelButton>
+                    <PopupConfirmButton onClick={onClickLogout}>
+                      Confirm
+                    </PopupConfirmButton>
+                  </PopupButtonsContainer>
+                </PopupMainContainer>
+              )}
+            </Popup>
+            <Popup
+              modal
+              trigger={
+                <MediumDevicesLogoutButton
+                  type="button"
+                  color={mediumLogoutButtonColor}
+                >
+                  Logout
+                </MediumDevicesLogoutButton>
+              }
+            >
+              {close => (
+                <PopupMainContainer color={bgColor}>
+                  <PopupHeading color={popupHeading}>
+                    Are you sure want to logout?
+                  </PopupHeading>
                   <PopupButtonsContainer>
                     <PopupCancelButton onClick={() => close()}>
                       Cancel

@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
-import {MdOutlineLightMode, MdOutlineDarkMode, MdClose} from 'react-icons/md'
+import {MdClose} from 'react-icons/md'
+import {BsMoon, BsBrightnessHigh} from 'react-icons/bs'
+
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {FiLogOut} from 'react-icons/fi'
 
@@ -13,36 +15,48 @@ export const HeaderMainContainer = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
 `
 export const HeaderWebsiteLogo = styled.img`
-  height: 50px;
-  max-width: 110px;
+  height: 35px;
+  max-width: 130px;
+  cursor: pointer;
   @media screen and (min-width: 767px) {
-    height: 50px;
-    max-width: 110px;
+    height: 40px;
+    max-width: 180px;
+    cursor: pointer;
   }
 `
 export const HeaderIconsContainer = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 150px;
+  max-width: 400px;
 `
 export const HeaderLink = styled(Link)`
   text-decoration: none;
 `
 export const ThemeButton = styled.button`
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   background-color: inherit;
   border-width: 0px;
   outline: none;
 `
-export const ReactLightModeIcon = styled(MdOutlineLightMode)`
-  font-size: 20px;
+export const ReactLightModeIcon = styled(BsBrightnessHigh)`
+  font-size: 25px;
   color: #ffffff;
+  cursor: pointer;
+  margin: 5px;
 `
-export const ReactDarkModeIcon = styled(MdOutlineDarkMode)`
-  font-size: 20px;
+export const ReactDarkModeIcon = styled(BsMoon)`
+  font-size: 25px;
   color: #000000;
+  cursor: pointer;
+  margin: 5px;
 `
 export const HamburgerMenuContainer = styled.div`
   display: flex;
@@ -52,13 +66,17 @@ export const HamburgerMenuContainer = styled.div`
 `
 
 export const ReactHamburgerMenuIcon = styled(GiHamburgerMenu)`
-  font-size: 20px;
+  font-size: 30px;
   color: ${props => props.color};
   margin: 7px;
+  cursor: pointer;
+  margin: 5px;
 `
 export const ReactLogoutIcon = styled(FiLogOut)`
-  font-size: 20px;
+  font-size: 27px;
   color: ${props => props.color};
+  cursor: pointer;
+  margin: 5px;
 `
 
 export const UserProfileContainer = styled.div`
@@ -74,12 +92,15 @@ export const UserProfileImage = styled.img`
   margin: 7px;
 `
 export const SmallDevicesLogoutButton = styled.button`
-  height: 30px;
-  width: 30px;
+  height: 50px;
+  width: 50px;
   background-color: inherit;
   border-width: 0px;
   outline: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
   @media screen and (min-width: 767px) {
     display: none;
   }
@@ -95,19 +116,36 @@ export const MediumDevicesLogoutButton = styled.button`
     color: ${props => props.color};
     font-family: 'Roboto';
     border-radius: 7px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `
 
 export const PopupMainContainer = styled.div`
   height: 30vh;
-  width: 30vw;
+  width: 80vw;
   background-color: ${props => props.color};
   border-radius: 10px;
-  padding: 15px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  align-self: center;
+  @media screen and (min-width: 767px) {
+    height: 30vh;
+    width: 25vw;
+    background-color: ${props => props.color};
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+  }
 `
 
 export const PopupHeading = styled.p`
@@ -115,6 +153,7 @@ export const PopupHeading = styled.p`
   color: ${props => props.color};
 `
 export const PopupButtonsContainer = styled.div`
+  width: 75%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -128,6 +167,7 @@ export const PopupCancelButton = styled.button`
   border: 1px solid #383838;
   font-family: 'Roboto';
   color: #383838;
+  cursor: pointer;
 `
 
 export const PopupConfirmButton = styled.button`
@@ -138,10 +178,13 @@ export const PopupConfirmButton = styled.button`
   border: none;
   font-family: 'Roboto';
   color: #ffffff;
+  cursor: pointer;
 `
 export const PopupHamburgerMenu = styled.div`
-  height: 100vh;
+  height: 95vh;
+  width: 95vw;
   background-color: ${props => props.color};
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -158,6 +201,7 @@ export const HamburgerMenuCloseButtonContainer = styled.div`
 export const HamburgerCloseButton = styled(MdClose)`
   font-size: 20px;
   color: ${props => props.color};
+  cursor: pointer;
 `
 export const HamburgerMenuListContainer = styled.div`
   display: flex;

@@ -18,14 +18,6 @@ import {
   ErrorMessageText,
 } from './styledComponents'
 
-let mainContainerBgColor = ''
-let formContainerBgColor = ''
-let logoImage = ''
-let inputLabelColor = ''
-let inputBorderColor = ''
-let checkBoxLabelColor = ''
-let errorMessageColor = ''
-
 class LoginForm extends Component {
   state = {
     username: '',
@@ -34,28 +26,6 @@ class LoginForm extends Component {
     showErrorMessage: false,
     errorMessage: '',
   }
-
-  componentDidMount() {
-    this.baseDetailsUpdate()
-  }
-
-  baseDetailsUpdate = () => (
-    <NxtWatchContext.Consumer>
-      {value => {
-        const {isDarkTheme} = value
-
-        mainContainerBgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
-        formContainerBgColor = isDarkTheme ? '#000000' : '#ffffff'
-        logoImage = isDarkTheme
-          ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-          : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
-        inputLabelColor = isDarkTheme ? '#ffffff' : '#383838'
-        inputBorderColor = isDarkTheme ? '#00306e' : '#383838'
-        checkBoxLabelColor = isDarkTheme ? '#ffffff' : '#000000'
-        errorMessageColor = isDarkTheme ? '#ff0000' : '#ff0b37'
-      }}
-    </NxtWatchContext.Consumer>
-  )
 
   onChangeUsername = event => {
     this.setState({username: event.target.value})
@@ -118,51 +88,74 @@ class LoginForm extends Component {
 
     const jwtToken = Cookies.get('jwt_token')
 
-    if (jwtToken !== undefined) {
+    /* if (jwtToken !== undefined) {
       return <Redirect to="/" />
-    }
+    } */
 
     return (
-      <LoginMainContainer bgColor={mainContainerBgColor}>
-        <FormContainer
-          bgColor={formContainerBgColor}
-          onSubmit={this.onSubmitLogin}
-        >
-          <FormLogoContainer>
-            <FormLogoImage src={logoImage} alt="channel logo" />
-          </FormLogoContainer>
-          <LoginLabelElement color={inputLabelColor}>
-            USERNAME
-          </LoginLabelElement>
-          <FormInputElement
-            type="text"
-            value={username}
-            onChange={this.onChangeUsername}
-            borderColor={inputBorderColor}
-          />
-          <LoginLabelElement color={inputLabelColor}>
-            PASSWORD
-          </LoginLabelElement>
-          <FormInputElement
-            type={passwordInputType}
-            value={password}
-            onChange={this.onChangePassword}
-            borderColor={inputBorderColor}
-          />
-          <CheckBoxLabelCommonContainer>
-            <InputCheckBox onChange={this.onChangeShowPassword} />
-            <CheckBoxLabelElement color={checkBoxLabelColor}>
-              Show Password
-            </CheckBoxLabelElement>
-          </CheckBoxLabelCommonContainer>
-          <LoginButton type="submit">Login</LoginButton>
-          {showErrorMessage && (
-            <ErrorMessageText color={errorMessageColor}>
-              {errorMessage}
-            </ErrorMessageText>
-          )}
-        </FormContainer>
-      </LoginMainContainer>
+      <NxtWatchContext.Consumer>
+        {value => {
+          const {isDarkTheme} = value
+
+          const mainContainerBgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
+          const formContainerBgColor = isDarkTheme ? '#000000' : '#ffffff'
+          const logoImage = isDarkTheme
+            ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+            : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
+          const inputLabelColor = isDarkTheme ? '#ffffff' : '#383838'
+          const inputBorderColor = isDarkTheme ? '#00306e' : '#383838'
+          const checkBoxLabelColor = isDarkTheme ? '#ffffff' : '#000000'
+          const errorMessageColor = isDarkTheme ? '#ff0000' : '#ff0b37'
+
+          return (
+            <LoginMainContainer bgColor={mainContainerBgColor}>
+              <FormContainer
+                bgColor={formContainerBgColor}
+                onSubmit={this.onSubmitLogin}
+              >
+                <FormLogoContainer>
+                  <FormLogoImage src={logoImage} alt="channel logo" />
+                </FormLogoContainer>
+                <LoginLabelElement color={inputLabelColor}>
+                  USERNAME
+                </LoginLabelElement>
+                <FormInputElement
+                  type="text"
+                  value={username}
+                  onChange={this.onChangeUsername}
+                  borderColor={inputBorderColor}
+                  placeholder="Username"
+                />
+                <LoginLabelElement color={inputLabelColor}>
+                  PASSWORD
+                </LoginLabelElement>
+                <FormInputElement
+                  type={passwordInputType}
+                  value={password}
+                  onChange={this.onChangePassword}
+                  borderColor={inputBorderColor}
+                  placeholder="Password"
+                />
+                <CheckBoxLabelCommonContainer>
+                  <InputCheckBox
+                    type="checkbox"
+                    onChange={this.onChangeShowPassword}
+                  />
+                  <CheckBoxLabelElement color={checkBoxLabelColor}>
+                    Show Password
+                  </CheckBoxLabelElement>
+                </CheckBoxLabelCommonContainer>
+                <LoginButton type="submit">Login</LoginButton>
+                {showErrorMessage && (
+                  <ErrorMessageText color={errorMessageColor}>
+                    {errorMessage}
+                  </ErrorMessageText>
+                )}
+              </FormContainer>
+            </LoginMainContainer>
+          )
+        }}
+      </NxtWatchContext.Consumer>
     )
   }
 }

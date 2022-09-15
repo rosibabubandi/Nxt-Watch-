@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const LoginMainContainer = styled.div`
   height: 100vh;
-  background-color: ${props => props.bgColor};
+  background-color: ${props => props.color};
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -11,15 +11,26 @@ export const LoginMainContainer = styled.div`
   padding: 10px;
 `
 export const FormContainer = styled.form`
-  height: 70%;
-  width: 80%;
-  box-shadow: 0px 4px 16px 0px ${props => props.bgColor};
+  height: 75%;
+  width: 90%;
+  box-shadow: 0px 4px 16px 0px ${props => props.color};
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 10px;
+  @media screen and (min-width: 767px) {
+    height: 65%;
+    width: 50%;
+    box-shadow: 0px 4px 16px 0px ${props => props.color};
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 30px;
+  }
 `
 export const FormLogoContainer = styled.div`
   display: flex;
@@ -65,6 +76,7 @@ export const CheckBoxLabelElement = styled.label`
 export const CheckBoxLabelCommonContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
 `
 export const LoginButton = styled.button`
   height: 50px;
