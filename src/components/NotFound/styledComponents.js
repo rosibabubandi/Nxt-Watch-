@@ -19,6 +19,7 @@ export const NotFoundMainContainer = styled.div`
 export const NotFoundSideBarContainer = styled.div`
   display: none;
   @media screen and (min-width: 767px) {
+    width: 25vw;
     display: flex;
   }
 `

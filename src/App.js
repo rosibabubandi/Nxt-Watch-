@@ -10,17 +10,26 @@ import './App.css'
 
 // Replace your code here
 class App extends Component {
-  state = {isDarkTheme: false}
+  state = {isDarkTheme: false, activeRouteName: 'HOME'}
 
   changeTheme = () => {
     this.setState(prevState => ({isDarkTheme: !prevState.isDarkTheme}))
   }
 
+  activeRoute = routeName => {
+    this.setState({activeRouteName: routeName})
+  }
+
   render() {
-    const {isDarkTheme} = this.state
+    const {isDarkTheme, activeRouteName} = this.state
     return (
       <NxtWatchContext.Provider
-        value={{isDarkTheme, changeTheme: this.changeTheme}}
+        value={{
+          isDarkTheme,
+          activeRouteName,
+          changeTheme: this.changeTheme,
+          activeRoute: this.activeRoute,
+        }}
       >
         <Switch>
           <Route exact path="/login" component={LoginForm} />

@@ -98,7 +98,7 @@ class LoginForm extends Component {
           const {isDarkTheme} = value
 
           const mainContainerBgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
-          const formContainerBgColor = isDarkTheme ? '#000000' : '#ffffff'
+          const formContainerBgColor = isDarkTheme ? '#475569' : '#d7dfe9'
           const logoImage = isDarkTheme
             ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
             : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
@@ -108,9 +108,9 @@ class LoginForm extends Component {
           const errorMessageColor = isDarkTheme ? '#ff0000' : '#ff0b37'
 
           return (
-            <LoginMainContainer bgColor={mainContainerBgColor}>
+            <LoginMainContainer color={mainContainerBgColor}>
               <FormContainer
-                bgColor={formContainerBgColor}
+                color={formContainerBgColor}
                 onSubmit={this.onSubmitLogin}
               >
                 <FormLogoContainer>

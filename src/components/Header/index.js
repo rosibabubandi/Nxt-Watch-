@@ -56,7 +56,7 @@ const Header = props => (
       return (
         <HeaderMainContainer color={bgColor}>
           <HeaderLink to="/">
-            <HeaderWebsiteLogo src={headerWebSiteLogo} alt="channel logo" />
+            <HeaderWebsiteLogo src={headerWebSiteLogo} alt="website logo" />
           </HeaderLink>
           <HeaderIconsContainer>
             <ThemeButton
@@ -84,7 +84,7 @@ const Header = props => (
                       />
                     </HamburgerMenuCloseButtonContainer>
                     <HamburgerMenuListContainer>
-                      {/* <SideBar /> */}
+                      <SideBar />
                     </HamburgerMenuListContainer>
                   </PopupHamburgerMenu>
                 )}

@@ -13,7 +13,7 @@ import {
 const NotFound = () => (
   <NxtWatchContext.Consumer>
     {value => {
-      const {isDarkTheme} = value
+      const {isDarkTheme, activeRoute} = value
       const notFoundBgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
       const notFoundImage = isDarkTheme
         ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-dark-theme-img.png'
@@ -21,12 +21,17 @@ const NotFound = () => (
       const notFoundHeading = isDarkTheme ? '#ffffff' : '#000000'
       const notFoundDescription = isDarkTheme ? '#f4f4f4' : '#1e293b'
 
+      const setActiveRouteToNull = () => {
+        activeRoute('')
+      }
+
       return (
         <>
           <Header />
           <NotFoundMainContainer>
             <NotFoundSideBarContainer>
-              {/* <SideBar /> */}
+              {setActiveRouteToNull}
+              <SideBar />
             </NotFoundSideBarContainer>
             <NotFoundSoloContainer color={notFoundBgColor}>
               <NotFoundImage src={notFoundImage} alt="not found" />
