@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
 export const NotFoundMainContainer = styled.div`
-  height: 90vh;
   width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   @media screen and (min-width: 767px) {
-    height: 90vh;
     width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -26,7 +26,7 @@ export const NotFoundSideBarContainer = styled.div`
 
 export const NotFoundSoloContainer = styled.div`
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,7 +37,7 @@ export const NotFoundSoloContainer = styled.div`
   background-color: ${props => props.color};
   @media screen and (min-width: 767px) {
     width: 75vw;
-    height: 90vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,12 +46,13 @@ export const NotFoundSoloContainer = styled.div`
     flex-grow: 1;
     background-color: ${props => props.color};
     align-self: center;
+    padding-top: 55px;
   }
 `
 
 export const NotFoundImage = styled.img`
-  height: 60%;
-  width: 50%;
+  height: 55%;
+  width: 45%;
   margin: 7px;
 `
 export const NotFoundHeading = styled.h1`

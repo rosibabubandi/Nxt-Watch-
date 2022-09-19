@@ -7,7 +7,7 @@ import {SiYoutubegaming} from 'react-icons/si'
 import {CgPlayListAdd} from 'react-icons/cg'
 
 export const SidebarMainContainer = styled.div`
-  height: 100%;
+  height: 100vh;
   width: 100vw;
   background-color: ${props => props.color};
   display: flex;
@@ -16,7 +16,7 @@ export const SidebarMainContainer = styled.div`
   align-items: center;
   padding: 10px;
   @media screen and (min-width: 767px) {
-    height: 90vh;
+    height: 95vh;
     width: 25vw;
     background-color: ${props => props.color};
     display: flex;
@@ -25,6 +25,8 @@ export const SidebarMainContainer = styled.div`
     align-items: flex-start;
     flex-shrink: 0;
     padding: 10px;
+    margin-top: 50px;
+    position: fixed;
   }
 `
 export const RoutesContainer = styled.div`
@@ -53,15 +55,17 @@ export const EachRouteContainer = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 5px;
   text-align: center;
+  border-radius: 7px;
   @media screen and (min-width: 767px) {
-    width: 25vw;
+    width: 23vw;
     background-color: ${props => props.color};
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    border-radius: 7px;
+    padding: 3px;
   }
 `
 export const SidebarLink = styled(Link)`

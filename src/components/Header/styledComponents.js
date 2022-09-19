@@ -17,6 +17,7 @@ export const HeaderMainContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  position: fixed;
 `
 export const HeaderWebsiteLogo = styled.img`
   height: 35px;
@@ -112,6 +113,7 @@ export const MediumDevicesLogoutButton = styled.button`
     height: 35px;
     width: 100px;
     background-color: inherit;
+    margin-right: 10px;
     border: 1px solid ${props => props.color};
     color: ${props => props.color};
     font-family: 'Roboto';
@@ -120,6 +122,7 @@ export const MediumDevicesLogoutButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 10px;
   }
 `
 

@@ -88,9 +88,9 @@ class LoginForm extends Component {
 
     const jwtToken = Cookies.get('jwt_token')
 
-    /* if (jwtToken !== undefined) {
+    if (jwtToken !== undefined) {
       return <Redirect to="/" />
-    } */
+    }
 
     return (
       <NxtWatchContext.Consumer>

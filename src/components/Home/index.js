@@ -2,7 +2,10 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
+import Header from '../Header'
 import Sidebar from '../SideBar'
+import HomeVideos from '../HomeVideos'
+
 import NxtWatchContext from '../../context/NxtWatchContext'
 
 import {
@@ -27,6 +30,7 @@ import {
   FailureNoResultsHeading,
   FailureNoResultsDescription,
   RetryButton,
+  SuccessContainer,
 } from './styledComponents'
 
 const apiStatusConstants = {
@@ -50,6 +54,7 @@ class Home extends Component {
   }
 
   getHomeVideos = async () => {
+    this.setState({homeApiStatus: apiStatusConstants.inProgress})
     const {userSearch} = this.state
 
     const jwtToken = Cookies.get('jwt_token')
@@ -68,7 +73,7 @@ class Home extends Component {
     if (response.ok) {
       const data = await response.json()
 
-      if (data.total) {
+      if (data.total > 0) {
         const updatedData = data.videos.map(eachVideo => ({
           id: eachVideo.id,
           title: eachVideo.title,
@@ -129,40 +134,46 @@ class Home extends Component {
     this.getHomeVideos()
   }
 
-  getSearchBar = () => {
-    const {userSearch} = this.state
+  getSearchBar = () => (
+    <NxtWatchContext.Consumer>
+      {value => {
+        const {isDarkTheme} = value
 
-    const searchContainerBorder = isDarkTheme ? '#383838' : '#94a3b8'
-    const searchInputColor = isDarkTheme ? '#606060' : '#94a3b8'
-    const searchInputBorderColor = isDarkTheme ? '#383838' : '#94a3b8'
-    const searchButtonBorderColor = isDarkTheme ? '#383838' : '#94a3b8'
-    const searchButtonBgColor = isDarkTheme ? '#909090' : '#cbd5e1'
-    return (
-      <HomeSearchContainer color={searchContainerBorder}>
-        <SearchInputElement
-          type="search"
-          value={userSearch}
-          onChange={this.onChangeSearchInput}
-          placeholder="Search"
-          color={searchInputColor}
-          borderColor={searchInputBorderColor}
-        />
-        <SearchIconButton
-          type="button"
-          data-testid="searchButton"
-          onClick={this.onClickSearch}
-          color={searchButtonBorderColor}
-          bgColor={searchButtonBgColor}
-        >
-          <SearchIcon />
-        </SearchIconButton>
-      </HomeSearchContainer>
-    )
-  }
+        const {userSearch} = this.state
+
+        const searchContainerBorder = isDarkTheme ? '#383838' : '#94a3b8'
+        const searchInputColor = isDarkTheme ? '#606060' : '#94a3b8'
+        const searchInputBorderColor = isDarkTheme ? '#383838' : '#94a3b8'
+        const searchButtonBorderColor = isDarkTheme ? '#383838' : '#94a3b8'
+        const searchButtonBgColor = isDarkTheme ? '#909090' : '#cbd5e1'
+        return (
+          <HomeSearchContainer color={searchContainerBorder}>
+            <SearchInputElement
+              type="search"
+              value={userSearch}
+              onChange={this.onChangeSearchInput}
+              placeholder="Search"
+              color={searchInputColor}
+              borderColor={searchInputBorderColor}
+            />
+            <SearchIconButton
+              type="button"
+              data-testid="searchButton"
+              onClick={this.onClickSearch}
+              color={searchButtonBorderColor}
+              bgColor={searchButtonBgColor}
+            >
+              <SearchIcon />
+            </SearchIconButton>
+          </HomeSearchContainer>
+        )
+      }}
+    </NxtWatchContext.Consumer>
+  )
 
   getLoadingView = () => (
     <LoadingContainer data-testid="loader">
-      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+      <Loader type="ThreeDots" color="#4f46e5" height="50" width="50" />
     </LoadingContainer>
   )
 
@@ -170,51 +181,74 @@ class Home extends Component {
     this.getHomeVideos()
   }
 
-  getFailureView = () => {
-    const failureImage = isDarkTheme
-      ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
-      : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
-    const failureHeadingColor = isDarkTheme ? '#ffffff' : '#000000'
-    const failureDescriptionColor = isDarkTheme ? '#94a3b8' : '#1e293b'
+  getFailureView = () => (
+    <NxtWatchContext.Consumer>
+      {value => {
+        const {isDarkTheme} = value
+
+        const failureImage = isDarkTheme
+          ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+          : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+        const failureHeadingColor = isDarkTheme ? '#ffffff' : '#000000'
+        const failureDescriptionColor = isDarkTheme ? '#94a3b8' : '#1e293b'
+        return (
+          <HomeFailureNoResultsContainer>
+            <HomeFailureNoResultsImage src={failureImage} alt="failure view" />
+            <FailureNoResultsHeading color={failureHeadingColor}>
+              Oops! Something Went Wrong
+            </FailureNoResultsHeading>
+            <FailureNoResultsDescription color={failureDescriptionColor}>
+              We are having some trouble to complete your request. Please try
+              again.
+            </FailureNoResultsDescription>
+            <RetryButton type="button" onClick={this.onClickRetry}>
+              Retry
+            </RetryButton>
+          </HomeFailureNoResultsContainer>
+        )
+      }}
+    </NxtWatchContext.Consumer>
+  )
+
+  getNoResultsView = () => (
+    <NxtWatchContext.Consumer>
+      {value => {
+        const {isDarkTheme} = value
+        const headingColor = isDarkTheme ? '#ffffff' : '#000000'
+        const headingDescriptionColor = isDarkTheme ? '#94a3b8' : '#1e293b'
+
+        return (
+          <HomeFailureNoResultsContainer>
+            <HomeFailureNoResultsImage
+              src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
+              alt="no videos"
+            />
+            <FailureNoResultsHeading color={headingColor}>
+              No Search results found
+            </FailureNoResultsHeading>
+            <FailureNoResultsDescription color={headingDescriptionColor}>
+              Try different key words or remove search filter
+            </FailureNoResultsDescription>
+            <RetryButton type="button" onClick={this.onClickRetry}>
+              Retry
+            </RetryButton>
+          </HomeFailureNoResultsContainer>
+        )
+      }}
+    </NxtWatchContext.Consumer>
+  )
+
+  getSuccessView = () => {
+    const {homeVideosList} = this.state
+
     return (
-      <HomeFailureNoResultsContainer>
-        <HomeFailureNoResultsImage src={failureImage} alt="failure view">
-          <FailureNoResultsHeading color={failureHeadingColor}>
-            Oops! Something Went Wrong
-          </FailureNoResultsHeading>
-          <FailureNoResultsDescription color={failureDescriptionColor}>
-            We are having some trouble to complete your request. Please try
-            again.
-          </FailureNoResultsDescription>
-          <RetryButton type="button" onClick={this.onClickRetry}>
-            Retry
-          </RetryButton>
-        </HomeFailureNoResultsImage>
-      </HomeFailureNoResultsContainer>
+      <SuccessContainer>
+        {homeVideosList.map(eachVideo => (
+          <HomeVideos key={eachVideo.id} videoDetails={eachVideo} />
+        ))}
+      </SuccessContainer>
     )
   }
-
-  getNoResultsView = () => {
-    const headingColor = isDarkTheme ? '#ffffff' : '#000000'
-    const headingDescriptionColor = isDarkTheme ? '#94a3b8' : '#1e293b'
-    return (
-      <HomeFailureNoResultsContainer>
-        <HomeFailureNoResultsImage src="" alt="failure view">
-          <FailureNoResultsHeading color={headingColor}>
-            No Search results found
-          </FailureNoResultsHeading>
-          <FailureNoResultsDescription color={headingDescriptionColor}>
-            Try different key words or remove search filter
-          </FailureNoResultsDescription>
-          <RetryButton type="button" onClick={this.onClickRetry}>
-            Retry
-          </RetryButton>
-        </HomeFailureNoResultsImage>
-      </HomeFailureNoResultsContainer>
-    )
-  }
-
-  getSuccessView = () => {}
 
   getAllHomeViews = () => {
     const {homeApiStatus} = this.state
@@ -243,16 +277,19 @@ class Home extends Component {
           const homeMainBgColor = isDarkTheme ? '#181818' : '#f9f9f9 '
 
           return (
-            <HomeMainContainer>
-              <HomeSideBarContainer>
-                <Sidebar />
-              </HomeSideBarContainer>
-              <HomeSoloContainer color={homeMainBgColor} data-testid="home">
-                {isBannerVisible && this.getHomeBanner()}
-                {this.getSearchBar()}
-                {this.getAllHomeViews()}
-              </HomeSoloContainer>
-            </HomeMainContainer>
+            <>
+              <Header />
+              <HomeMainContainer>
+                <HomeSideBarContainer>
+                  <Sidebar />
+                </HomeSideBarContainer>
+                <HomeSoloContainer color={homeMainBgColor} data-testid="home">
+                  {isBannerVisible && this.getHomeBanner()}
+                  {this.getSearchBar()}
+                  {this.getAllHomeViews()}
+                </HomeSoloContainer>
+              </HomeMainContainer>
+            </>
           )
         }}
       </NxtWatchContext.Consumer>
