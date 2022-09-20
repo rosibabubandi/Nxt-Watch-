@@ -22,7 +22,7 @@ const NotFound = () => (
       const notFoundDescription = isDarkTheme ? '#f4f4f4' : '#1e293b'
 
       const setActiveRouteToNull = () => {
-        activeRoute('')
+        activeRoute()
       }
 
       return (

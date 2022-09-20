@@ -3,8 +3,8 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
 import Header from '../Header'
-import Sidebar from '../SideBar'
-import AllVideos from '../AllVideos'
+import SideBar from '../SideBar'
+import GamingVideos from '../GamingVideos'
 
 import NxtWatchContext from '../../context/NxtWatchContext'
 
@@ -125,7 +125,7 @@ class Gaming extends Component {
     return (
       <SuccessContainer>
         {gamingVideosList.map(eachVideo => (
-          <AllVideos key={eachVideo.id} videoDetails={eachVideo} />
+          <GamingVideos key={eachVideo.id} videoDetails={eachVideo} />
         ))}
       </SuccessContainer>
     )
@@ -182,7 +182,7 @@ class Gaming extends Component {
               <Header />
               <GamingMainContainer>
                 <GamingSideBarContainer>
-                  <Sidebar />
+                  <SideBar />
                 </GamingSideBarContainer>
                 <GamingSoloContainer
                   color={gamingMainBgColor}

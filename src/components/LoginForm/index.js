@@ -114,7 +114,7 @@ class LoginForm extends Component {
                 onSubmit={this.onSubmitLogin}
               >
                 <FormLogoContainer>
-                  <FormLogoImage src={logoImage} alt="channel logo" />
+                  <FormLogoImage src={logoImage} alt="website logo" />
                 </FormLogoContainer>
                 <LoginLabelElement color={inputLabelColor}>
                   USERNAME

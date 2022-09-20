@@ -21,7 +21,7 @@ let activeRouterBaseStylesTrending = []
 let activeRouterBaseStylesGaming = []
 let activeRouterBaseStylesSavedVideos = []
 
-const Sidebar = () => (
+const SideBar = () => (
   <NxtWatchContextContext.Consumer>
     {value => {
       const {isDarkTheme, activeRoute, activeRouteName} = value
@@ -171,4 +171,4 @@ const Sidebar = () => (
   </NxtWatchContextContext.Consumer>
 )
 
-export default Sidebar
+export default SideBar

@@ -110,8 +110,9 @@ export const ContactUsContainer = styled.div`
     padding: 10px;
   }
 `
-export const ContactUsText = styled.h1`
-  font-size: 20px;
+export const ContactUsText = styled.p`
+  font-size: 22px;
+  font-weight: bold;
   font-family: 'Roboto';
   color: ${props => props.color};
 `

@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
 import Header from '../Header'
-import Sidebar from '../SideBar'
+import SideBar from '../SideBar'
 import HomeVideos from '../HomeVideos'
 
 import NxtWatchContext from '../../context/NxtWatchContext'
@@ -274,14 +274,14 @@ class Home extends Component {
         {value => {
           const {isDarkTheme} = value
 
-          const homeMainBgColor = isDarkTheme ? '#181818' : '#f9f9f9 '
+          const homeMainBgColor = isDarkTheme ? '#181818' : '#f9f9f9'
 
           return (
             <>
               <Header />
               <HomeMainContainer>
                 <HomeSideBarContainer>
-                  <Sidebar />
+                  <SideBar />
                 </HomeSideBarContainer>
                 <HomeSoloContainer color={homeMainBgColor} data-testid="home">
                   {isBannerVisible && this.getHomeBanner()}

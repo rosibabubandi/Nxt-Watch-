@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
 import Header from '../Header'
-import Sidebar from '../SideBar'
+import SideBar from '../SideBar'
 import TrendingVideos from '../TrendingVideos'
 
 import NxtWatchContext from '../../context/NxtWatchContext'
@@ -187,7 +187,7 @@ class Trending extends Component {
               <Header />
               <TrendingMainContainer>
                 <TrendingSideBarContainer>
-                  <Sidebar />
+                  <SideBar />
                 </TrendingSideBarContainer>
                 <TrendingSoloContainer
                   color={trendingMainBgColor}

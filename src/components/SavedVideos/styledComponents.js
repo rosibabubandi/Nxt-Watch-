@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import {SiYoutubegaming} from 'react-icons/si'
+import {HiFire} from 'react-icons/hi'
 
-export const GamingMainContainer = styled.div`
+export const SavedVideosMainContainer = styled.div`
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@ export const GamingMainContainer = styled.div`
     align-items: flex-start;
   }
 `
-export const GamingSideBarContainer = styled.div`
+export const SavedVideosSideBarContainer = styled.div`
   display: none;
   @media screen and (min-width: 767px) {
     width: 25vw;
@@ -24,7 +24,7 @@ export const GamingSideBarContainer = styled.div`
     flex-shrink: 0;
   }
 `
-export const GamingSoloContainer = styled.div`
+export const SavedVideosSoloContainer = styled.div`
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -48,21 +48,21 @@ export const GamingSoloContainer = styled.div`
     padding-top: 55px;
   }
 `
-export const GamingBannerContainer = styled.div`
+export const SavedVideosBannerContainer = styled.div`
   height: 110px;
   width: 100%;
   padding-left: 20px;
   background-color: ${props => props.color};
   display: flex;
 `
-export const GamingIconNameContainer = styled.div`
+export const SavedVideosIconNameContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   padding: 5px;
 `
-export const GamingIconContainer = styled.div`
+export const SavedVideosIconContainer = styled.div`
   height: 70px;
   width: 70px;
   background-color: ${props => props.color};
@@ -70,7 +70,7 @@ export const GamingIconContainer = styled.div`
   padding: 5px;
   margin-right: 20px;
 `
-export const GamingIcon = styled(SiYoutubegaming)`
+export const TrendingIcon = styled(HiFire)`
   height: 50px;
   width: 50px;
   color: #ff0000;
@@ -81,15 +81,7 @@ export const RouteText = styled.h1`
   color: ${props => props.color};
   margin-left: 20px;
 `
-export const LoadingContainer = styled.div`
-  width: 75vw;
-  height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-export const FailureContainer = styled.div`
+export const NoVideosContainer = styled.div`
   height: 100%;
   width: 75vw;
   display: flex;
@@ -99,51 +91,29 @@ export const FailureContainer = styled.div`
   padding: 10px;
 `
 
-export const FailureImage = styled.img`
+export const NoVideosImage = styled.img`
   height: 30%;
   width: 60%;
   margin-bottom: 10px;
 `
 
-export const FailureHeading = styled.h1`
+export const NoVideosHeading = styled.h1`
   font-family: 'Roboto';
   color: ${props => props.color};
   margin-bottom: 10px;
 `
-export const FailureDescription = styled.p`
+export const NoVideosDescription = styled.p`
   font-family: 'Roboto';
   color: ${props => props.color};
   font-size: 16px;
   margin-bottom: 10px;
-`
-
-export const RetryButton = styled.button`
-  height: 35px;
-  width: 90px;
-  background-color: #4f46e5;
-  border-width: 0px;
-  color: #ffffff;
-  border-radius: 5px;
-  font-family: 'Roboto';
-  cursor: pointer;
 `
 export const SuccessContainer = styled.ul`
   margin-left: 0px;
   list-style-type: none;
   width: 75vw;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  @media screen and (min-width: 576px) {
-    margin-left: 0px;
-    list-style-type: none;
-    width: 75vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
