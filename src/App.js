@@ -43,9 +43,7 @@ class App extends Component {
     }
   }
 
-  removeVideo = video => {
-    const {id} = video
-
+  removeVideo = id => {
     const {savedVideosList} = this.state
 
     const filteredVideoList = savedVideosList.filter(

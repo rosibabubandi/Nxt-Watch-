@@ -92,6 +92,7 @@ export const UserProfileImage = styled.img`
   width: 30px;
   margin: 7px;
 `
+
 export const SmallDevicesLogoutButton = styled.button`
   height: 50px;
   width: 50px;

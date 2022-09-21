@@ -88,6 +88,7 @@ export const LoginButton = styled.button`
   color: #ffffff;
   margin-top: 7px;
   margin-bottom: 7px;
+  cursor: pointer;
 `
 
 export const ErrorMessageText = styled.p`

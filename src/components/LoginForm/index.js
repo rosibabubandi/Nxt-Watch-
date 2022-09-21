@@ -116,20 +116,22 @@ class LoginForm extends Component {
                 <FormLogoContainer>
                   <FormLogoImage src={logoImage} alt="website logo" />
                 </FormLogoContainer>
-                <LoginLabelElement color={inputLabelColor}>
+                <LoginLabelElement htmlFor="username" color={inputLabelColor}>
                   USERNAME
                 </LoginLabelElement>
                 <FormInputElement
+                  id="username"
                   type="text"
                   value={username}
                   onChange={this.onChangeUsername}
                   borderColor={inputBorderColor}
                   placeholder="Username"
                 />
-                <LoginLabelElement color={inputLabelColor}>
+                <LoginLabelElement htmlFor="password" color={inputLabelColor}>
                   PASSWORD
                 </LoginLabelElement>
                 <FormInputElement
+                  id="password"
                   type={passwordInputType}
                   value={password}
                   onChange={this.onChangePassword}
@@ -138,10 +140,14 @@ class LoginForm extends Component {
                 />
                 <CheckBoxLabelCommonContainer>
                   <InputCheckBox
+                    id="showPasswordCheckBoc"
                     type="checkbox"
                     onChange={this.onChangeShowPassword}
                   />
-                  <CheckBoxLabelElement color={checkBoxLabelColor}>
+                  <CheckBoxLabelElement
+                    htmlFor="showPasswordCheckBoc"
+                    color={checkBoxLabelColor}
+                  >
                     Show Password
                   </CheckBoxLabelElement>
                 </CheckBoxLabelCommonContainer>

@@ -153,11 +153,12 @@ class VideoItemDetails extends Component {
   getSuccessView = () => (
     <NxtWatchContext.Consumer>
       {value => {
-        const {isDarkTheme, removeVideo, saveVideo} = value
+        const {isDarkTheme, removeVideo, saveVideo, savedVideosList} = value
 
-        const {completeVideoDetails, activeLikeOrDisLike, isSaved} = this.state
+        const {completeVideoDetails, activeLikeOrDisLike} = this.state
 
         const {
+          id,
           title,
           videoUrl,
           channel,
@@ -165,6 +166,10 @@ class VideoItemDetails extends Component {
           publishedAt,
           description,
         } = completeVideoDetails
+
+        const isVideoAlreadySaved = savedVideosList.some(
+          eachVideo => eachVideo.id === id,
+        )
 
         const {name, profileImageUrl, subscriberCount} = channel
 
@@ -179,16 +184,16 @@ class VideoItemDetails extends Component {
           activeLikeOrDisLike === 'LIKE' ? '#2563eb' : '#64748b'
         const disLikeButtonColor =
           activeLikeOrDisLike === 'DISLIKE' ? '#2563eb' : '#64748b'
-        const saveButtonTextColor = isSaved ? '#2563eb' : '#64748b'
-        const saveButtonText = isSaved ? 'Saved' : 'Save'
+        const saveButtonTextColor = isVideoAlreadySaved ? '#2563eb' : '#64748b'
+        const saveButtonText = isVideoAlreadySaved ? 'Saved' : 'Save'
 
         const uploadedAt = formatDistanceToNow(new Date(publishedAt)).split(' ')
 
         const uploadedDate = `${uploadedAt[1]} ${uploadedAt[2]} ago`
 
         const onClickSaveRemove = () => {
-          if (isSaved) {
-            removeVideo(completeVideoDetails)
+          if (isVideoAlreadySaved) {
+            removeVideo(id)
           } else {
             saveVideo(completeVideoDetails)
           }
@@ -226,7 +231,10 @@ class VideoItemDetails extends Component {
                     Dislike
                   </LikeDisLikeSaveText>
                 </LikesSavesButton>
-                <LikesSavesButton type="button" onClick={onClickSaveRemove}>
+                <LikesSavesButton
+                  type="button"
+                  onClick={() => onClickSaveRemove()}
+                >
                   <ReactAddPlayListIcon color={saveButtonTextColor} />
                   <LikeDisLikeSaveText color={saveButtonTextColor}>
                     {saveButtonText}
