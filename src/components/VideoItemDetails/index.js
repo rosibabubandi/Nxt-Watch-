@@ -2,6 +2,7 @@ import {Component} from 'react'
 import {formatDistanceToNow} from 'date-fns'
 
 import ReactPlayer from 'react-player'
+
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 
@@ -202,7 +203,7 @@ class VideoItemDetails extends Component {
 
         return (
           <SuccessContainer>
-            <ReactPlayer url={videoUrl} height="60vh" width="70vw" controls />
+            <ReactPlayer url={videoUrl} height="60vh" width="95%" controls />
             <TitleOfVideo color={videoChannelTitleDescriptionColor}>
               {title}
             </TitleOfVideo>

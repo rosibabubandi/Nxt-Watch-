@@ -45,37 +45,37 @@ const SideBar = () => (
       if (isDarkTheme) {
         activeRouterBaseStylesHome =
           activeRouteName === 'HOME'
-            ? ['#1e293b', '#ff0000', '#ffffff', '500']
-            : ['inherit', '#909090', '#ffffff', '200']
+            ? ['#1e293b', '#ff0000', '#ffffff', '700']
+            : ['inherit', '#909090', '#ffffff', '400']
         activeRouterBaseStylesTrending =
           activeRouteName === 'TRENDING'
-            ? ['#1e293b', '#ff0000', '#ffffff', '500']
-            : ['inherit', '#909090', '#ffffff', '200']
+            ? ['#1e293b', '#ff0000', '#ffffff', '700']
+            : ['inherit', '#909090', '#ffffff', '400']
         activeRouterBaseStylesGaming =
           activeRouteName === 'GAMING'
-            ? ['#1e293b', '#ff0000', '#ffffff', '500']
-            : ['inherit', '#909090', '#ffffff', '200']
+            ? ['#1e293b', '#ff0000', '#ffffff', '700']
+            : ['inherit', '#909090', '#ffffff', '400']
         activeRouterBaseStylesSavedVideos =
           activeRouteName === 'SAVEDVIDEOS'
-            ? ['#1e293b', '#ff0000', '#ffffff', '500']
-            : ['inherit', '#909090', '#ffffff', '200']
+            ? ['#1e293b', '#ff0000', '#ffffff', '700']
+            : ['inherit', '#909090', '#ffffff', '400']
       } else {
         activeRouterBaseStylesHome =
           activeRouteName === 'HOME'
-            ? ['#cbd5e1', '#ff0b37', '#000000', '500']
-            : ['inherit', '#313131', '#000000', '200']
+            ? ['#cbd5e1', '#ff0b37', '#000000', '700']
+            : ['inherit', '#313131', '#000000', '400']
         activeRouterBaseStylesTrending =
           activeRouteName === 'TRENDING'
-            ? ['#cbd5e1', '#ff0b37', '#000000', '500']
-            : ['inherit', '#313131', '#000000', '200']
+            ? ['#cbd5e1', '#ff0b37', '#000000', '700']
+            : ['inherit', '#313131', '#000000', '400']
         activeRouterBaseStylesGaming =
           activeRouteName === 'GAMING'
-            ? ['#cbd5e1', '#ff0b37', '#000000', '500']
-            : ['inherit', '#313131', '#000000', '200']
+            ? ['#cbd5e1', '#ff0b37', '#000000', '700']
+            : ['inherit', '#313131', '#000000', '400']
         activeRouterBaseStylesSavedVideos =
           activeRouteName === 'SAVEDVIDEOS'
-            ? ['#cbd5e1', '#ff0b37', '#000000', '500']
-            : ['inherit', '#313131', '#000000', '200']
+            ? ['#cbd5e1', '#ff0b37', '#000000', '700']
+            : ['inherit', '#313131', '#000000', '400']
       }
 
       const mainContainerBgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'

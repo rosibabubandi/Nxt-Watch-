@@ -8,7 +8,7 @@ export const NotFoundMainContainer = styled.div`
   justify-content: center;
   align-items: center;
   @media screen and (min-width: 767px) {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: row;

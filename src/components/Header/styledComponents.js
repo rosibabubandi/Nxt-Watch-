@@ -92,7 +92,18 @@ export const UserProfileImage = styled.img`
   width: 30px;
   margin: 7px;
 `
-
+export const SmallDevicesLogoutButtonContainer = styled.div`
+  display: flex;
+  @media screen and (min-width: 767px) {
+    display: none;
+  }
+`
+export const MediumDevicesLogoutButtonContainer = styled.div`
+  display: none;
+  @media screen and (min-width: 767px) {
+    display: flex;
+  }
+`
 export const SmallDevicesLogoutButton = styled.button`
   height: 50px;
   width: 50px;
@@ -103,28 +114,22 @@ export const SmallDevicesLogoutButton = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  @media screen and (min-width: 767px) {
-    display: none;
-  }
 `
 
 export const MediumDevicesLogoutButton = styled.button`
-  display: none;
-  @media screen and (min-width: 767px) {
-    height: 35px;
-    width: 100px;
-    background-color: inherit;
-    margin-right: 10px;
-    border: 1px solid ${props => props.color};
-    color: ${props => props.color};
-    font-family: 'Roboto';
-    border-radius: 7px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-  }
+  height: 35px;
+  width: 100px;
+  background-color: inherit;
+  margin-right: 10px;
+  border: 1px solid ${props => props.color};
+  color: ${props => props.color};
+  font-family: 'Roboto';
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
 `
 
 export const PopupMainContainer = styled.div`

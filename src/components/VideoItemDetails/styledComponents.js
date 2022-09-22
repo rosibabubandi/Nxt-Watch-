@@ -10,7 +10,7 @@ export const VideoItemDetailsMainContainer = styled.div`
   justify-content: center;
   align-items: center;
   @media screen and (min-width: 767px) {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -37,6 +37,7 @@ export const VideoItemDetailsSoloContainer = styled.div`
   background-color: ${props => props.color};
   padding-top: 65px;
   @media screen and (min-width: 767px) {
+    min-height: 100vh;
     width: 75vw;
     display: flex;
     flex-direction: column;
@@ -47,11 +48,12 @@ export const VideoItemDetailsSoloContainer = styled.div`
     background-color: ${props => props.color};
     align-self: center;
     padding-top: 55px;
+    overflow-x: hidden;
   }
 `
 export const LoadingContainer = styled.div`
   width: 75vw;
-  height: 50vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,12 +98,22 @@ export const RetryButton = styled.button`
   cursor: pointer;
 `
 export const SuccessContainer = styled.div`
-  width: 70vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 7px;
+  text-align: left;
+  padding: 5px;
+  @media screen and (min-width: 767px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 5px;
+  }
 `
 export const TitleOfVideo = styled.p`
   font-family: 'Roboto';

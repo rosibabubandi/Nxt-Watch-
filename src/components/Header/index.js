@@ -28,6 +28,8 @@ import {
   HamburgerMenuCloseButtonContainer,
   HamburgerCloseButton,
   HamburgerMenuListContainer,
+  SmallDevicesLogoutButtonContainer,
+  MediumDevicesLogoutButtonContainer,
 } from './styledComponents'
 
 const Header = props => (
@@ -96,57 +98,61 @@ const Header = props => (
                 alt="profile"
               />
             </UserProfileContainer>
-            <Popup
-              modal
-              trigger={
-                <SmallDevicesLogoutButton type="button">
-                  <ReactLogoutIcon color={hamburgerMenuLogoutButtonColor} />
-                </SmallDevicesLogoutButton>
-              }
-            >
-              {close => (
-                <PopupMainContainer color={bgColor}>
-                  <PopupHeading color={popupHeading}>
-                    Are you sure want to logout?
-                  </PopupHeading>
-                  <PopupButtonsContainer>
-                    <PopupCancelButton onClick={() => close()}>
-                      Cancel
-                    </PopupCancelButton>
-                    <PopupConfirmButton onClick={onClickLogout}>
-                      Confirm
-                    </PopupConfirmButton>
-                  </PopupButtonsContainer>
-                </PopupMainContainer>
-              )}
-            </Popup>
-            <Popup
-              modal
-              trigger={
-                <MediumDevicesLogoutButton
-                  type="button"
-                  color={mediumLogoutButtonColor}
-                >
-                  Logout
-                </MediumDevicesLogoutButton>
-              }
-            >
-              {close => (
-                <PopupMainContainer color={bgColor}>
-                  <PopupHeading color={popupHeading}>
-                    Are you sure want to logout?
-                  </PopupHeading>
-                  <PopupButtonsContainer>
-                    <PopupCancelButton onClick={() => close()}>
-                      Cancel
-                    </PopupCancelButton>
-                    <PopupConfirmButton onClick={onClickLogout}>
-                      Confirm
-                    </PopupConfirmButton>
-                  </PopupButtonsContainer>
-                </PopupMainContainer>
-              )}
-            </Popup>
+            <SmallDevicesLogoutButtonContainer>
+              <Popup
+                modal
+                trigger={
+                  <SmallDevicesLogoutButton type="button">
+                    <ReactLogoutIcon color={hamburgerMenuLogoutButtonColor} />
+                  </SmallDevicesLogoutButton>
+                }
+              >
+                {close => (
+                  <PopupMainContainer color={bgColor}>
+                    <PopupHeading color={popupHeading}>
+                      Are you sure, you want to logout
+                    </PopupHeading>
+                    <PopupButtonsContainer>
+                      <PopupCancelButton type="button" onClick={() => close()}>
+                        Cancel
+                      </PopupCancelButton>
+                      <PopupConfirmButton type="button" onClick={onClickLogout}>
+                        Confirm
+                      </PopupConfirmButton>
+                    </PopupButtonsContainer>
+                  </PopupMainContainer>
+                )}
+              </Popup>
+            </SmallDevicesLogoutButtonContainer>
+            <MediumDevicesLogoutButtonContainer>
+              <Popup
+                modal
+                trigger={
+                  <MediumDevicesLogoutButton
+                    type="button"
+                    color={mediumLogoutButtonColor}
+                  >
+                    Logout
+                  </MediumDevicesLogoutButton>
+                }
+              >
+                {close => (
+                  <PopupMainContainer color={bgColor}>
+                    <PopupHeading color={popupHeading}>
+                      Are you sure, you want to logout
+                    </PopupHeading>
+                    <PopupButtonsContainer>
+                      <PopupCancelButton type="button" onClick={() => close()}>
+                        Cancel
+                      </PopupCancelButton>
+                      <PopupConfirmButton type="button" onClick={onClickLogout}>
+                        Confirm
+                      </PopupConfirmButton>
+                    </PopupButtonsContainer>
+                  </PopupMainContainer>
+                )}
+              </Popup>
+            </MediumDevicesLogoutButtonContainer>
           </HeaderIconsContainer>
         </HeaderMainContainer>
       )

@@ -10,7 +10,7 @@ export const HomeMainContainer = styled.div`
   justify-content: center;
   align-items: center;
   @media screen and (min-width: 767px) {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -37,6 +37,7 @@ export const HomeSoloContainer = styled.div`
   background-color: ${props => props.color};
   padding-top: 65px;
   @media screen and (min-width: 767px) {
+    min-height: 100vh;
     width: 75vw;
     display: flex;
     flex-direction: column;
@@ -47,6 +48,8 @@ export const HomeSoloContainer = styled.div`
     background-color: ${props => props.color};
     align-self: center;
     padding-top: 55px;
+    overflow-x: hidden;
+    padding-left: 15px;
   }
 `
 export const HomeTopBanner = styled.div`
@@ -164,7 +167,7 @@ export const SearchIcon = styled(BsSearch)`
 `
 export const LoadingContainer = styled.div`
   width: 75vw;
-  height: 50vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

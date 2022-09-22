@@ -24,7 +24,6 @@ export const SidebarMainContainer = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     flex-shrink: 0;
-    padding: 10px;
     margin-top: 50px;
     position: fixed;
   }
@@ -44,7 +43,6 @@ export const RoutesContainer = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 10px;
   }
 `
 
@@ -56,7 +54,6 @@ export const EachRouteContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  border-radius: 7px;
   @media screen and (min-width: 767px) {
     width: 23vw;
     background-color: ${props => props.color};
@@ -64,8 +61,7 @@ export const EachRouteContainer = styled.div`
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    border-radius: 7px;
-    padding: 3px;
+    padding-left: 20px;
   }
 `
 export const SidebarLink = styled(Link)`
